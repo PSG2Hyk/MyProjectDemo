@@ -7,4 +7,5 @@ public interface BlogService {
     List<Blog> findAll();
     Blog findByBlogId(Integer blogId);
     List<Blog>findByBlogContentLike(String blogContent);
+    List<Blog>findByBlogType(String blogType);
 }

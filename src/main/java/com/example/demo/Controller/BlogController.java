@@ -48,4 +48,15 @@ public class BlogController {
             return ResultUtil.error(CodeEnum.NOT_FOUND);
         }
     }
+
+    @CrossOrigin
+    @GetMapping("/findByType")
+    public Result findByType(String blogType){
+        try {
+            List<Blog> byBlogType = blogService.findByBlogType(blogType);
+            return ResultUtil.success(byBlogType);
+        }catch (Exception e){
+            return ResultUtil.error(CodeEnum.NOT_FOUND);
+        }
+    }
 }

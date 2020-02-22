@@ -10,4 +10,6 @@ public interface BlogDao extends JpaRepository<Blog,String>, JpaSpecificationExe
     Blog findByBlogId(Integer blogId);
 
     List<Blog>findByBlogContentLike(String blogContent);
+
+    List<Blog>findByBlogType(String blogType);
 }

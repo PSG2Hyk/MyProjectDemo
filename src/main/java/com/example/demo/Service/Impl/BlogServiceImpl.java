@@ -26,4 +26,9 @@ public class BlogServiceImpl implements BlogService {
     public List<Blog> findByBlogContentLike(String blogContent) {
         return blogDao.findByBlogContentLike(blogContent);
     }
+
+    @Override
+    public List<Blog> findByBlogType(String blogType) {
+        return blogDao.findByBlogType(blogType);
+    }
 }
