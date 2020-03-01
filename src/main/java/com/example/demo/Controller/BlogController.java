@@ -4,6 +4,7 @@ import com.example.demo.Data.Blog;
 import com.example.demo.Enum.CodeEnum;
 import com.example.demo.Response.Result;
 import com.example.demo.Service.BlogService;
+import com.example.demo.Service.CommentService;
 import com.example.demo.Util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +17,19 @@ import java.util.List;
 public class BlogController {
     @Autowired
     BlogService blogService;
+    @Autowired
+    CommentService commentService;
     @CrossOrigin
     @GetMapping("/List")
     public Result blogList(){
         try {
             List<Blog> blogServiceAll = blogService.findAll();
+//            System.out.println("1-----------------"+blogServiceAll);
+            blogServiceAll.forEach(i->{
+//                System.out.println("count--------------"+i.getBlogId());
+                Long count = commentService.countByBlogId(i.getBlogId());
+                i.setCommentCount(count);
+            });
             return ResultUtil.success(blogServiceAll);
         }catch (Exception e){
             return ResultUtil.error(CodeEnum.NOT_FOUND);

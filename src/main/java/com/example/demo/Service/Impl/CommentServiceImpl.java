@@ -32,4 +32,9 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findByParentId(Integer parentId) {
         return commentDao.findByParentId(parentId);
     }
+
+    @Override
+    public Long countByBlogId(Integer blogId) {
+        return commentDao.countByBlogId(blogId);
+    }
 }

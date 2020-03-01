@@ -9,4 +9,5 @@ import java.util.List;
 public interface CommentDao extends JpaRepository<Comment,String>,JpaSpecificationExecutor<Comment> {
     List<Comment> findByBlogIdAndCommentStatusAndParentId(Integer blogId,Integer commentStatus,Integer parentId);
     List<Comment> findByParentId(Integer parentId);
+    Long countByBlogId(Integer blogId);
 }
