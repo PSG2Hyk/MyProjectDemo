@@ -4,6 +4,8 @@ import com.example.demo.Dao.BlogDao;
 import com.example.demo.Data.Blog;
 import com.example.demo.Service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,4 +33,11 @@ public class BlogServiceImpl implements BlogService {
     public List<Blog> findByBlogType(String blogType) {
         return blogDao.findByBlogType(blogType);
     }
+
+    @Override
+    public Page<Blog> findAll(Pageable pageable) {
+        return blogDao.findAll(pageable);
+    }
+
+
 }

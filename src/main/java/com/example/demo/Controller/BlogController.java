@@ -24,9 +24,7 @@ public class BlogController {
     public Result blogList(){
         try {
             List<Blog> blogServiceAll = blogService.findAll();
-//            System.out.println("1-----------------"+blogServiceAll);
             blogServiceAll.forEach(i->{
-//                System.out.println("count--------------"+i.getBlogId());
                 Long count = commentService.countByBlogId(i.getBlogId());
                 i.setCommentCount(count);
             });
@@ -68,4 +66,5 @@ public class BlogController {
             return ResultUtil.error(CodeEnum.NOT_FOUND);
         }
     }
+
 }

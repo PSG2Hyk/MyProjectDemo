@@ -20,3 +20,5 @@ spring:
 #    show-sql: true
 server:
   port: 8081
+purl:
+  domain: http://localhost:8081/

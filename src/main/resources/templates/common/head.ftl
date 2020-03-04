@@ -1,7 +1,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>第一个</title>
+    <title>天博个人博客</title>
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/sell/css/style.css">
     <link href="https://cdn.bootcss.com/bootstrap-fileinput/4.4.7/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
