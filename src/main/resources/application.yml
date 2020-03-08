@@ -14,11 +14,11 @@ spring:
     charset: utf-8
     cache: false
     template-loader-path: classpath:/templates
-  mvc:
-    static-path-pattern: /static
+#  mvc:
+#    static-path-pattern: /static
 #  jpa:
 #    show-sql: true
 server:
   port: 8081
 purl:
-  domain: http://localhost:8081/
+  domain: http://localhost:8081

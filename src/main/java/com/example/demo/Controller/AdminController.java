@@ -53,4 +53,6 @@ public class AdminController {
         }
         return new ModelAndView("redirect:"+projectUrlConfig.getDomain()+"/Admin/Blog/BlogList");//跳转到Admin管理页面
     }
+
+    
 }

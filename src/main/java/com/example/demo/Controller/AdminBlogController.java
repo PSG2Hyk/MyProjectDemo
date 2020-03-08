@@ -20,7 +20,7 @@ public class AdminBlogController {
 
     @RequestMapping("/BlogList")
     private ModelAndView BlogList(@RequestParam(value = "page",defaultValue = "1")Integer page,
-                                  @RequestParam(value = "size",defaultValue = "10")Integer size,
+                                  @RequestParam(value = "size",defaultValue = "5")Integer size,
                                   Map<String,Object> map){
         try {
             Page<Blog> blogPage = blogService.findAll(PageRequest.of(page - 1, size));
