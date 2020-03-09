@@ -23,9 +23,9 @@ public class BlogController {
     @GetMapping("/List")
     public Result blogList(){
         try {
-            List<Blog> blogServiceAll = blogService.findAll();
+            List<Blog> blogServiceAll = blogService.findByBlogStatus(0);
             blogServiceAll.forEach(i->{
-                Long count = commentService.countByBlogId(i.getBlogId());
+                Long count = commentService.countByBlogIdAndCommentStatus(i.getBlogId(),0);
                 i.setCommentCount(count);
             });
             return ResultUtil.success(blogServiceAll);
@@ -49,7 +49,7 @@ public class BlogController {
     @GetMapping("/findBy")
     public Result blogFindBy(String blogContent){
         try {
-            List<Blog> byBlogContent = blogService.findByBlogContentLike("%" + blogContent + "%");
+            List<Blog> byBlogContent = blogService.findByBlogContentLikeAndBlogStatus("%" + blogContent + "%",0);
             return ResultUtil.success(byBlogContent);
         }catch (Exception e){
             return ResultUtil.error(CodeEnum.NOT_FOUND);
@@ -60,7 +60,7 @@ public class BlogController {
     @GetMapping("/findByType")
     public Result findByType(String blogType){
         try {
-            List<Blog> byBlogType = blogService.findByBlogType(blogType);
+            List<Blog> byBlogType = blogService.findByBlogTypeAndBlogStatus(blogType,0);
             return ResultUtil.success(byBlogType);
         }catch (Exception e){
             return ResultUtil.error(CodeEnum.NOT_FOUND);

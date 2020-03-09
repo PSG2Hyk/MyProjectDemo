@@ -8,6 +8,6 @@ public interface CommentService {
     List<Comment>findAll();
     Comment save(Comment comment);
     List<Comment> findByBlogIdAndCommentStatusAndParentId(Integer blogId,Integer commentStatus,Integer parentId);
-    List<Comment> findByParentId(Integer parentId);
-    Long countByBlogId(Integer blogId);
+    List<Comment> findByParentIdAndCommentStatus(Integer parentId,Integer commentStatus);
+    Long countByBlogIdAndCommentStatus(Integer blogId, Integer commentStatus);
 }

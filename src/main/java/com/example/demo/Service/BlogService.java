@@ -7,9 +7,9 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface BlogService {
-    List<Blog> findAll();
+    List<Blog>findByBlogStatus(Integer blogStatus);
     Blog findByBlogId(Integer blogId);
-    List<Blog>findByBlogContentLike(String blogContent);
-    List<Blog>findByBlogType(String blogType);
+    List<Blog>findByBlogContentLikeAndBlogStatus(String blogContent,Integer blogStatus);
+    List<Blog>findByBlogTypeAndBlogStatus(String blogType, Integer blogStatus);
     Page<Blog> findAll(Pageable pageable);
 }

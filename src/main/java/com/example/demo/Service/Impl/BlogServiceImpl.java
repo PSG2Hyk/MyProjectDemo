@@ -14,9 +14,10 @@ import java.util.List;
 public class BlogServiceImpl implements BlogService {
     @Autowired
     BlogDao blogDao;
+
     @Override
-    public List<Blog> findAll() {
-        return blogDao.findAll();
+    public List<Blog> findByBlogStatus(Integer blogStatus) {
+        return blogDao.findByBlogStatus(blogStatus);
     }
 
     @Override
@@ -25,14 +26,15 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<Blog> findByBlogContentLike(String blogContent) {
-        return blogDao.findByBlogContentLike(blogContent);
+    public List<Blog> findByBlogContentLikeAndBlogStatus(String blogContent, Integer blogStatus) {
+        return blogDao.findByBlogContentLikeAndBlogStatus(blogContent,blogStatus);
     }
 
     @Override
-    public List<Blog> findByBlogType(String blogType) {
-        return blogDao.findByBlogType(blogType);
+    public List<Blog> findByBlogTypeAndBlogStatus(String blogType, Integer blogStatus) {
+        return blogDao.findByBlogTypeAndBlogStatus(blogType,blogStatus);
     }
+
 
     @Override
     public Page<Blog> findAll(Pageable pageable) {

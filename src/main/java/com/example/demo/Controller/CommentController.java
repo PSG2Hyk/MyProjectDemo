@@ -47,7 +47,7 @@ public class CommentController {
     @GetMapping("/Son")
     public Result commentSon(Integer parentId){
         try {
-            List<Comment> byParentId = commentservice.findByParentId(parentId);
+            List<Comment> byParentId = commentservice.findByParentIdAndCommentStatus(parentId,0);
             return ResultUtil.success(byParentId);
         }catch (Exception e){
             return ResultUtil.error(CodeEnum.NOT_FOUND);

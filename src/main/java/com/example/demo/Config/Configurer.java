@@ -10,7 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class Configurer implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(myInterceptor()).addPathPatterns("/**").excludePathPatterns("/Admin/Login").excludePathPatterns("/Admin/Index");//将自己的拦截器注册到spring中并添加拦截的路径
+        registry.addInterceptor(myInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/Admin/Login").excludePathPatterns("/Admin/Index").excludePathPatterns("/Blog/**").excludePathPatterns("/Comment/**");//将自己的拦截器注册到spring中并添加拦截的路径
     }
     @Bean
     LoginInterceptor myInterceptor(){

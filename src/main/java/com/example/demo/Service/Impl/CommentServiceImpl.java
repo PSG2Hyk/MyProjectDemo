@@ -29,12 +29,15 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> findByParentId(Integer parentId) {
-        return commentDao.findByParentId(parentId);
+    public List<Comment> findByParentIdAndCommentStatus(Integer parentId, Integer commentStatus) {
+        return commentDao.findByParentIdAndCommentStatus(parentId,commentStatus);
     }
 
+
     @Override
-    public Long countByBlogId(Integer blogId) {
-        return commentDao.countByBlogId(blogId);
+    public Long countByBlogIdAndCommentStatus(Integer blogId, Integer commentStatus) {
+        return commentDao.countByBlogIdAndCommentStatus(blogId,commentStatus);
     }
+
+
 }

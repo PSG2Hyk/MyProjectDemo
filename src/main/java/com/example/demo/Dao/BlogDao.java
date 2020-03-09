@@ -11,9 +11,11 @@ import java.util.List;
 public interface BlogDao extends JpaRepository<Blog,String>, JpaSpecificationExecutor<Blog> {
     Blog findByBlogId(Integer blogId);
 
-    List<Blog>findByBlogContentLike(String blogContent);
+    List<Blog>findByBlogStatus(Integer blogStatus);
 
-    List<Blog>findByBlogType(String blogType);
+    List<Blog>findByBlogContentLikeAndBlogStatus(String blogContent,Integer blogStatus);
+
+    List<Blog>findByBlogTypeAndBlogStatus(String blogType, Integer blogStatus);
 
     Page<Blog> findAll(Pageable pageable);
 }
