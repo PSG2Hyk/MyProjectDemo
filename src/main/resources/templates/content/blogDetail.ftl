@@ -23,7 +23,7 @@
         });
         $("#input-id").on('fileuploaded',function (event,data,previewId,index) {
             console.log(data)
-            if(data.response.code!=0){
+            if(data.response.code!=200){
                 alert(data.response.msg+"-----"+data.response.data.fileUrl);
                 return;
             }
