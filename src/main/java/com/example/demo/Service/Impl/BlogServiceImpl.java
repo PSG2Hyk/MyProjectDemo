@@ -41,5 +41,15 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.findAll(pageable);
     }
 
+    @Override
+    public Blog save(Blog blog) {
+        return blogDao.save(blog);
+    }
+
+    @Override
+    public Page<Blog> findByBlogContentLike(String blogContent, Pageable pageable) {
+        return blogDao.findByBlogContentLike(blogContent,pageable);
+    }
+
 
 }

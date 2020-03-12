@@ -54,5 +54,21 @@ public class AdminController {
         return new ModelAndView("redirect:"+projectUrlConfig.getDomain()+"/Admin/Blog/BlogList");//跳转到Admin管理页面
     }
 
-    
+    @RequestMapping("/LoginOut")
+    private ModelAndView LoginOut(HttpServletResponse response,
+                                  HttpServletRequest request,
+                                  Map<String,Object>map){
+        try {
+            request.getSession().invalidate();//清除session
+            System.out.println("我有session："+ request.getSession().getAttribute("user"));
+            map.put("msg","注销成功");
+            map.put("url","/Admin/Index");
+        }catch (Exception e){
+            map.put("msg","注销失败");
+            map.put("url","/Admin/Blog/BlogList");
+            return new ModelAndView("/content/error",map);
+        }
+        return new ModelAndView("/content/success",map);
+    }
+
 }

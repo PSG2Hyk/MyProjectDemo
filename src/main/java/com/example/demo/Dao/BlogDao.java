@@ -18,4 +18,7 @@ public interface BlogDao extends JpaRepository<Blog,String>, JpaSpecificationExe
     List<Blog>findByBlogTypeAndBlogStatus(String blogType, Integer blogStatus);
 
     Page<Blog> findAll(Pageable pageable);
+
+    Page<Blog>findByBlogContentLike(String blogContent,Pageable pageable);
+
 }

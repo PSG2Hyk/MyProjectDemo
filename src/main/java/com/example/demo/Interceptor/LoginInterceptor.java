@@ -14,7 +14,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         System.out.println("---------------------------我运行了-------------------------");
         System.out.println("我是拦截器："+request.getSession().getAttribute("user"));
         if (request.getSession().getAttribute("user")==null){
-            response.sendRedirect("/Admin/Login");
+            response.sendRedirect("/Admin/Index");
             return false;
         }
         return true;

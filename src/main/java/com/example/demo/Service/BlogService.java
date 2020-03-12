@@ -12,4 +12,6 @@ public interface BlogService {
     List<Blog>findByBlogContentLikeAndBlogStatus(String blogContent,Integer blogStatus);
     List<Blog>findByBlogTypeAndBlogStatus(String blogType, Integer blogStatus);
     Page<Blog> findAll(Pageable pageable);
+    Blog save(Blog blog);
+    Page<Blog>findByBlogContentLike(String blogContent,Pageable pageable);
 }

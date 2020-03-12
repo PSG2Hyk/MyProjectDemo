@@ -25,6 +25,7 @@ public class Blog {
     private Date updateTime;
     private Integer blogStatus;
     private String blogType;
+    private String imgUrl;
     @Transient
     private Long commentCount;
 }

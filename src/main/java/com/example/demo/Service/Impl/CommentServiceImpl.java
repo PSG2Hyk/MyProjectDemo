@@ -4,6 +4,8 @@ import com.example.demo.Dao.CommentDao;
 import com.example.demo.Data.Comment;
 import com.example.demo.Service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,6 +39,21 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Long countByBlogIdAndCommentStatus(Integer blogId, Integer commentStatus) {
         return commentDao.countByBlogIdAndCommentStatus(blogId,commentStatus);
+    }
+
+    @Override
+    public Page<Comment> findAll(Pageable pageable) {
+        return commentDao.findAll(pageable);
+    }
+
+    @Override
+    public Comment findByCommentId(Integer commentId) {
+        return commentDao.findByCommentId(commentId);
+    }
+
+    @Override
+    public Page<Comment> findByCommentTextLike(String commentText,Pageable pageable) {
+        return commentDao.findByCommentTextLike(commentText,pageable);
     }
 
 

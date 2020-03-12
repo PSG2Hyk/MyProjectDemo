@@ -8,6 +8,12 @@
             <div class="row clearfix">
                 <div class="col-md-12 column">
                     <table class="table">
+                        <form role="form" action="/Admin/Blog/findBy" method="get">
+                            <div class="input-group" style="margin: 10px;" >
+                                <input type="text" class="form-control" style="width: 150px" placeholder="内容搜索" name="blogContent" >
+                                <button type="submit" class="btn btn-default">搜索</button>
+                            </div>
+                        </form>
                         <thead>
                         <tr>
                             <th>编号</th>
@@ -26,24 +32,14 @@
                                 <td>${blogPage.blogTitle}</td>
                                 <td style="max-width: 200px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap">${blogPage.blogContent}</td>
                                 <td>${blogPage.blogType}</td>
-                                <td>${blogPage.blogStatus}</td>
+                                <td>
+                                    <#if blogPage.blogStatus==0>上线
+                                        <#elseif blogPage.blogStatus==1>删除
+                                    </#if>
+                                </td>
                                 <td>${blogPage.createTime}</td>
-                                <#--<td>-->
-                                    <#--&lt;#&ndash;<#if orderDTO.orderStatus==0>新订单&ndash;&gt;-->
-                                    <#--&lt;#&ndash;<#elseif orderDTO.orderStatus==1>完结&ndash;&gt;-->
-                                    <#--&lt;#&ndash;<#else >已取消&ndash;&gt;-->
-                                    <#--&lt;#&ndash;</#if>&ndash;&gt;-->
-                                    <#--${blogPage.orderStatusEnum.msg}-->
-                                <#--</td>-->
-                                <#--<td>-->
-                                    <#--&lt;#&ndash;<#if orderDTO.payStatus==0>未支付&ndash;&gt;-->
-                                    <#--&lt;#&ndash;<#else>支付成功&ndash;&gt;-->
-                                    <#--&lt;#&ndash;</#if>&ndash;&gt;-->
-                                    <#--${blogPage.payStatusEnum.msg}-->
-                                <#--</td>-->
-                                <#--href="/sell/seller/order/detail?orderId=${blogPage.orderId}"-->
-                                <td><a>博客详情</a></td>
-                                <td><a>状态更改</a></td>
+                                <td><a href="/Admin/Blog/Detail?blogId=${blogPage.blogId}">博客详情</a></td>
+                                <td><a href="/Admin/Blog/Status?blogId=${blogPage.blogId}">状态更改</a></td>
                             </tr>
                         </#list>
                         </tbody>
